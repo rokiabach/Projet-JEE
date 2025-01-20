@@ -24,12 +24,10 @@ public class Chambre {
     @Enumerated(EnumType.STRING) // Indique que le champ est une énumération
     private ChambreStatut etat; // Utilisation de l'énumération EtatChambre
 
-    @OneToOne(mappedBy = "chambre", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "chambre_id", nullable = false)
+    @OneToOne(mappedBy = "chambre")
     private Resident resident;
 
-    @OneToMany(mappedBy = "chambre", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "chambre", cascade = CascadeType.ALL)
     private List<Requete> requets;
 
     @ManyToOne

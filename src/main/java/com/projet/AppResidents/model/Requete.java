@@ -1,7 +1,9 @@
 package com.projet.AppResidents.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 @Entity
@@ -15,7 +17,10 @@ public class Requete {
 
     private String typeProbleme;
     private String description;
-    private String statut;
+
+    @Enumerated(EnumType.STRING) // Indique que le champ est une énumération
+    private RequeteStatut statut; // Utilisation de l'énumération StatutRequete
+
     private LocalDate dateSignalement;
     private LocalDate dateResolution;
 
@@ -27,11 +32,15 @@ public class Requete {
     @JoinColumn(name = "resident_id")
     private Resident resident;
 
-
     @ManyToOne
     @JoinColumn(name = "technicien_id")
     private Technicien technicien;
 
+    @ManyToOne
+    @JoinColumn(name = "administrateur_id")
+    private Administrateur administrateur;
+
+    // Getters et Setters
     public Long getId() {
         return id;
     }
@@ -56,11 +65,11 @@ public class Requete {
         this.description = description;
     }
 
-    public String getStatut() {
+    public RequeteStatut getStatut() {
         return statut;
     }
 
-    public void setStatut(String statut) {
+    public void setStatut(RequeteStatut statut) {
         this.statut = statut;
     }
 
@@ -102,5 +111,13 @@ public class Requete {
 
     public void setTechnicien(Technicien technicien) {
         this.technicien = technicien;
+    }
+
+    public Administrateur getAdministrateur() {
+        return administrateur;
+    }
+
+    public void setAdministrateur(Administrateur administrateur) {
+        this.administrateur = administrateur;
     }
 }

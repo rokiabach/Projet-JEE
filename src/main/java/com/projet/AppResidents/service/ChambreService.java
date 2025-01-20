@@ -42,10 +42,10 @@ public class ChambreService {
                     .orElseThrow(() -> new RuntimeException("Résident non trouvé")));
         }*/
 
-        if (chambreRequestDTO.getAdministrateurId() != null) {
+        /*if (chambreRequestDTO.getAdministrateurId() != null) {
             chambre.setAdministrateur(administrateurRepository.findById(chambreRequestDTO.getAdministrateurId())
                     .orElseThrow(() -> new RuntimeException("Administrateur non trouvé")));
-        }
+        }*/
 
         Chambre savedChambre = chambreRepository.save(chambre);
         return modelMapper.map(savedChambre, ChambreResponseDTO.class);
@@ -80,10 +80,10 @@ public class ChambreService {
                     .orElseThrow(() -> new RuntimeException("Résident non trouvé")));
         }*/
 
-        if (chambreRequestDTO.getAdministrateurId() != null) {
+        /*if (chambreRequestDTO.getAdministrateurId() != null) {
             existingChambre.setAdministrateur(administrateurRepository.findById(chambreRequestDTO.getAdministrateurId())
                     .orElseThrow(() -> new RuntimeException("Administrateur non trouvé")));
-        }
+        }*/
 
         Chambre updatedChambre = chambreRepository.save(existingChambre);
         return modelMapper.map(updatedChambre, ChambreResponseDTO.class);

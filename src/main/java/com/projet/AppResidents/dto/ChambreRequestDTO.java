@@ -7,8 +7,8 @@ public class ChambreRequestDTO {
     private double taille;
     private String equipements;
     private ChambreStatut etat; // Utilisation de l'énumération EtatChambre
-    private Long residentId; // ID du résident associé
-    private Long administrateurId; // ID de l'administrateur associé
+    //private Long residentId; // ID du résident associé
+    private Long administrateur_id; // ID de l'administrateur associé
 
     // Getters et Setters
     public String getNumero() {
@@ -43,19 +43,19 @@ public class ChambreRequestDTO {
         this.etat = etat;
     }
 
-    public Long getResidentId() {
+    /*public Long getResidentId() {
         return residentId;
     }
 
     public void setResidentId(Long residentId) {
         this.residentId = residentId;
-    }
+    }*/
 
     public Long getAdministrateurId() {
-        return administrateurId;
+        return administrateur_id;
     }
 
-    public void setAdministrateurId(Long administrateurId) {
-        this.administrateurId = administrateurId;
+    public void setAdministrateurId(Long administrateur_id) {
+        this.administrateur_id = administrateur_id;
     }
 }

@@ -1,11 +1,13 @@
 package com.projet.AppResidents.dto;
+
+import com.projet.AppResidents.model.RequeteStatut;
 import java.time.LocalDate;
 
 public class RequeteResponseDTO {
     private Long id;
     private String typeProbleme;
     private String description;
-    private String statut;
+    private RequeteStatut statut; // Utilisation de l'énumération StatutRequete
     private LocalDate dateSignalement;
     private LocalDate dateResolution;
     private Long chambreId; // ID de la chambre associée
@@ -37,11 +39,11 @@ public class RequeteResponseDTO {
         this.description = description;
     }
 
-    public String getStatut() {
+    public RequeteStatut getStatut() {
         return statut;
     }
 
-    public void setStatut(String statut) {
+    public void setStatut(RequeteStatut statut) {
         this.statut = statut;
     }
 

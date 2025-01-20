@@ -22,8 +22,11 @@ public class Administrateur {
 
     private String role;
 
-    @OneToMany(mappedBy = "administrateur", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "administrateur", cascade = CascadeType.ALL)
     private List<Chambre> chambre;
+
+    @OneToMany(mappedBy = "administrateur", cascade = CascadeType.ALL)
+    private List<Requete> requetes;
 
     public long getId() {
         return id;
@@ -80,4 +83,13 @@ public class Administrateur {
     public void setChambre(List<Chambre> chambre) {
         this.chambre = chambre;
     }
+
+    public List<Requete> getRequetes() {
+        return requetes;
+    }
+
+    public void setRequetes(List<Requete> requetes) {
+        this.requetes = requetes;
+    }
+
 }

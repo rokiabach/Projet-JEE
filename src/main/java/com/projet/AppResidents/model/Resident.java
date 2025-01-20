@@ -24,9 +24,10 @@ public class Resident {
     private String adresse;
 
     @OneToOne
+    @JoinColumn(name = "chambre_id")
     private Chambre chambre;
 
-    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
     private List<Requete> requetes;
 
     public long getId() {

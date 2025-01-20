@@ -21,7 +21,7 @@ public class Technicien {
     private String email;
     private String telephone;
 
-    @OneToMany(mappedBy = "technicien", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "technicien", cascade = CascadeType.ALL)
     private List<Requete> requetes;
 
 
